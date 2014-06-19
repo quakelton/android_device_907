@@ -1,44 +1,43 @@
-CyanogenMod Sun4i
+CyanogenMod for Allwinner A10 (sun4i)
 ===============
 Compilation Notes
 -----------------
 
 * Build from Sources
+(You will need build packages installed.)
 
-1)Create a directory
+1) Create a directory
 
 	mkdir cyanogen
 
-2)Change to the created directory
+2) Change to the created directory
 
 	cd cyanogen
 
-3)Init the CyanogenMod repository
+3) Init the CyanogenMod repository
 
 	repo init -u git://github.com/CyanogenMod/android.git -b cm-11.0
 
-4)Paste this lines inside new file .repo/manifests/local_manifest.xml
-and paste this lines inside new file .repo/local_manifest.xml
+4) Create a new file named .repo/local_manifests/907.xml and paste the following into the file:
 
 	<?xml version="1.0" encoding="UTF-8"?>
 	<manifest>
 	  <!-- remote  name="github" fetch="git://github.com/" /-->
-	  <project remote="github" revision="cm-11.0" name="dianlujitao/android_device_907" path="device/softwinner/907" />
+	  <project remote="github" revision="cm-11.0" name="quakelton/android_device_907" path="device/softwinner/907" />
 	</manifest>
 
-5)Now type this command:
+5) Now type this command:
 
 	repo sync -j16
 
-6)Prebuilts:
+6) Prebuilts:
 
-	cd vendor/cm
-	./get-prebuilts
+	./vendor/cm/get-prebuilts
 
-7)Finally you're ready to build it:
+7) Finally you're ready to build it:
 
 	export APPLY_PATCHES_907=1
 	source build/envsetup.sh
 	brunch cm_907-userdebug
 
-Credits to ugers,shaun2029 and christiantroy.
+Credits to ugers, shaun2029, christiantroy and AllwinnerA10-Development.
