@@ -17,7 +17,11 @@ Compilation Notes
 
 	repo init -u git://github.com/CyanogenMod/android.git -b cm-10.2
 
-4) Create a new file named .repo/local_manifests/907.xml and paste the following into the file:
+4) Create a new directory under .repo:
+
+	mkdir .repo/local_manifests
+	
+5) Create a new file named .repo/local_manifests/907.xml and paste the following into the file:
 
 	<?xml version="1.0" encoding="UTF-8"?>
 	<manifest>
@@ -25,15 +29,15 @@ Compilation Notes
 	  <project remote="github" revision="cm-10.2" name="quakelton/android_device_907" path="device/softwinner/907" />
 	</manifest>
 
-5) Now type this command:
+6) Now type this command:
 
 	repo sync -j16
 
-6) Prebuilts:
+7) Prebuilts:
 
 	./vendor/cm/get-prebuilts
 
-7) Finally you're ready to build it:
+8) Finally you're ready to build it:
 
 	source build/envsetup.sh
 	brunch cm_907-userdebug
